@@ -7,5 +7,6 @@ namespace SpyDuh_Baratheon.Controllers
     [ApiController]
     public class SkillsController : ControllerBase
     {
+
     }
 }
