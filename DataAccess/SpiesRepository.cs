@@ -121,12 +121,12 @@ namespace SpyDuh_Baratheon.DataAccess
 
 
         // GET
-        internal object GetByName(string _name)
+        internal Spy GetByName(string _name)
         {
             var match = _spies.FirstOrDefault(s => s.Name == _name);
             return match;
         }
-        internal object GetById(int _id)
+        internal Spy GetById(int _id)
         {
             var match = _spies.FirstOrDefault(s => s.Id == _id);
             return match;
@@ -137,9 +137,39 @@ namespace SpyDuh_Baratheon.DataAccess
             return _spy.FriendIds;
         }
 
+        internal List<Spy> GetFriends(Spy _spy)
+        {
+            List<Spy> friends = new List<Spy>();
+
+            foreach (int id in _spy.FriendIds)
+            {
+                Spy friend = GetById(id);
+                if (friend != null)
+                {
+                    friends.Add(friend);
+                }
+            }
+            return friends;
+        }
+
         internal List<int> GetEnemyIds(Spy _spy)
         {
             return _spy.EnemyIds;
+        }
+
+        internal List<Spy> GetEnemies(Spy _spy)
+        {
+            List<Spy> enemies = new List<Spy>();
+
+            foreach (int id in _spy.EnemyIds)
+            {
+                Spy enemy = GetById(id);
+                if (enemy != null)
+                {
+                    enemies.Add(enemy);
+                }
+            }
+            return enemies;
         }
 
         internal List<Spy> GetAll()

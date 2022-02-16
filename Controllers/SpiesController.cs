@@ -45,6 +45,58 @@ namespace SpyDuh_Baratheon.Controllers
             return Ok(match);
         }
 
+        [HttpGet("friendIds/{id}")]
+        public IActionResult GetFriendIds(int id)
+        {
+            Spy spy = _repo.GetById(id);
+
+            if (spy == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(spy.FriendIds);
+        }
+
+        [HttpGet("friends/{id}")]
+        public IActionResult GetFriends(int id)
+        {
+            Spy spy = _repo.GetById(id);
+
+            if (spy == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(_repo.GetFriends(spy));
+        }
+
+        [HttpGet("enemyIds/{id}")]
+        public IActionResult GetEnemyIds(int id)
+        {
+            Spy spy = _repo.GetById(id);
+
+            if (spy == null)
+            {
+                return BadRequest();
+            }
+
+            return Ok(spy.EnemyIds);
+        }
+
+        [HttpGet("enemies/{id}")]
+        public IActionResult GetEnemies(int id)
+        {
+            Spy spy = _repo.GetById(id);
+
+            if (spy == null)
+            {
+                return BadRequest();
+            }
+
+            return Ok(_repo.GetEnemies(spy));
+        }
+
         // POST
         [HttpPost]
         public IActionResult PostNewSpy(Spy newSpy)
