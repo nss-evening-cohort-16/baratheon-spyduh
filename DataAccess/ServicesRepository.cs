@@ -38,6 +38,16 @@ namespace SpyDuh_Baratheon.DataAccess
             },
         };
 
+        internal object GetById(Services newService)
+        {
+            
+        }
+
+        internal void Post(Services newService)
+        {
+            _servicesOffered.Add(newService);
+        }
+
         internal List<Services> GetAll()
         {
             return _servicesOffered;
