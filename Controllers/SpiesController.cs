@@ -83,5 +83,12 @@ namespace SpyDuh_Baratheon.Controllers
 
             return true;
         }
+
+        [HttpGet("skillsbyspy/{id}")]
+        public IActionResult GetSkillsBySpyId(int Id)
+        {
+            var skills = _repo.GetSkills(Id);
+            return Ok(skills);
+        }
     }
 }

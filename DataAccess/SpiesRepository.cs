@@ -136,11 +136,19 @@ namespace SpyDuh_Baratheon.DataAccess
         {
             return _spies;
         }
+        internal object GetSkills(int Id)
+        {
+            var match = _spies.FirstOrDefault(spy => spy.Id == Id);
+            var skills = match.SkillIds;
+            return skills;
+
+        }
 
         // POST
         internal void Post(Spy _spy)
         {
             _spies.Add(_spy);
         }
+
     }
 }
