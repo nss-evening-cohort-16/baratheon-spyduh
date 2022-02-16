@@ -45,18 +45,6 @@ namespace SpyDuh_Baratheon.Controllers
             return Ok(match);
         }
 
-<<<<<<< HEAD
-        [HttpGet("friendids/{friendsids")]
-        public IActionResult GetSpyFriends(int friendsids)
-        {
-            var match = _repo.GetSpyFriendsIds(friendsids);
-            if (match == null)
-            {
-                return NotFound();
-            }
-            return Ok(match);
-        }        
-=======
         // POST
         [HttpPost]
         public IActionResult PostNewSpy(Spy _spy)
@@ -95,6 +83,5 @@ namespace SpyDuh_Baratheon.Controllers
 
             return true;
         }
->>>>>>> main
     }
 }
