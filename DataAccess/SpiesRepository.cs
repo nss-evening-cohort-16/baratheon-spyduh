@@ -113,5 +113,10 @@ namespace SpyDuh_Baratheon.DataAccess
         {
             return _spies;
         }
+        internal object GetSpyFriendsIds(int friendsids)
+        {
+            var match = _spies.FirstOrDefault(s => s.FriendIds != friendsids);
+            return match;
+        }
     }
 }

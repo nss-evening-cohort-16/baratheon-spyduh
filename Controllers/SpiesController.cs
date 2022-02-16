@@ -42,5 +42,16 @@ namespace SpyDuh_Baratheon.Controllers
 
             return Ok(match);
         }
+
+        [HttpGet("friendids/{friendsids")]
+        public IActionResult GetSpyFriends(int friendsids)
+        {
+            var match = _repo.GetSpyFriendsIds(friendsids);
+            if (match == null)
+            {
+                return NotFound();
+            }
+            return Ok(match);
+        }        
     }
 }
