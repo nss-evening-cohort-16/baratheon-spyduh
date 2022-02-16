@@ -10,7 +10,10 @@ namespace SpyDuh_Baratheon.DataAccess
             {
                 Id = 1,
                 Name = "Robert Baratheon",
-                Skills = new List<Skills>(){
+                SkillIds = new List<int>() {
+                    2, 3, 5, 6, 8, 9
+                },
+                ServiceIds = new List<int>() {
                 },
                 FriendIds = new List<int> {
                     2, 3, 5, 6,
@@ -23,7 +26,10 @@ namespace SpyDuh_Baratheon.DataAccess
             {
                 Id = 2,
                 Name = "Cersei Lannister",
-                Skills = new List<Skills>(){
+                SkillIds = new List<int>() {
+                    3, 4, 6, 7, 8, 9, 10
+                },
+                ServiceIds = new List<int>() {
                 },
                 FriendIds = new List<int> {
                     1, 3, 5, 6,
@@ -36,7 +42,10 @@ namespace SpyDuh_Baratheon.DataAccess
             {
                 Id = 3,
                 Name = "Joffrey Baratheon",
-                Skills = new List<Skills>(){
+                SkillIds = new List<int>() {
+                    5, 7, 9
+                },
+                ServiceIds = new List<int>() {
                 },
                 FriendIds = new List<int> {
                     1, 2, 4, 5, 
@@ -49,7 +58,10 @@ namespace SpyDuh_Baratheon.DataAccess
             {
                 Id = 4,
                 Name = "Margaery Tyrell",
-                Skills = new List<Skills>(){
+                SkillIds = new List<int>() {
+                    3, 4, 6, 7, 8, 9, 10
+                },
+                ServiceIds = new List<int>() {
                 },
                 FriendIds = new List<int> {
                     1, 3,
@@ -62,7 +74,10 @@ namespace SpyDuh_Baratheon.DataAccess
             {
                 Id = 5,
                 Name = "Myrcella Baratheon",
-                Skills = new List<Skills>(){
+                SkillIds = new List<int>() {
+                    3, 5, 6, 8
+                },
+                ServiceIds = new List<int>() {
                 },
                 FriendIds = new List<int> {
                     1, 2, 3, 6, 7
@@ -74,7 +89,10 @@ namespace SpyDuh_Baratheon.DataAccess
             {
                 Id = 6,
                 Name = "Tommen Baratheon",
-                Skills = new List<Skills>(){
+                SkillIds = new List<int>() {
+                    1, 2, 4, 5
+                },
+                ServiceIds = new List<int>() {
                 },
                 FriendIds = new List<int> {
                     1, 2, 5, 7,
@@ -87,7 +105,10 @@ namespace SpyDuh_Baratheon.DataAccess
             {
                 Id = 7,
                 Name = "Stannis Baratheon",
-                Skills = new List<Skills>(){
+                SkillIds = new List<int>() {
+                    1, 2, 3, 5, 6, 7, 9
+                },
+                ServiceIds = new List<int>() {
                 },
                 FriendIds = new List<int> {
                     5, 6,
@@ -98,6 +119,8 @@ namespace SpyDuh_Baratheon.DataAccess
             },
         };
 
+
+        // GET
         internal object GetByName(string _name)
         {
             var match = _spies.FirstOrDefault(s => s.Name == _name);
@@ -113,10 +136,18 @@ namespace SpyDuh_Baratheon.DataAccess
         {
             return _spies;
         }
+<<<<<<< HEAD
         internal object GetSpyFriendsIds(int friendsids)
         {
             var match = _spies.FirstOrDefault(s => s.FriendIds != friendsids);
             return match;
+=======
+
+        // POST
+        internal void Post(Spy _spy)
+        {
+            _spies.Add(_spy);
+>>>>>>> main
         }
     }
 }

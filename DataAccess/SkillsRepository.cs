@@ -39,7 +39,7 @@ namespace SpyDuh_Baratheon.DataAccess
             new Skills()
             {
                 Id = 7,
-                skillName = "Espianoge"
+                skillName = "Espionoge"
             },
             new Skills()
             {

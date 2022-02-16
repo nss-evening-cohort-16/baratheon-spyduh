@@ -11,6 +11,8 @@ namespace SpyDuh_Baratheon.Controllers
     {
         SpiesRepository _repo = new SpiesRepository();
 
+
+        // GET
         [HttpGet]
         public List<Spy> GetAllSpies()
         {
@@ -30,7 +32,7 @@ namespace SpyDuh_Baratheon.Controllers
             return Ok(match);
         }
 
-        [HttpGet("id/{id}")]
+        [HttpGet("{id}")]
         public IActionResult GetSpyByID(int _id)
         {
             var match = _repo.GetById(_id);
@@ -43,6 +45,7 @@ namespace SpyDuh_Baratheon.Controllers
             return Ok(match);
         }
 
+<<<<<<< HEAD
         [HttpGet("friendids/{friendsids")]
         public IActionResult GetSpyFriends(int friendsids)
         {
@@ -53,5 +56,45 @@ namespace SpyDuh_Baratheon.Controllers
             }
             return Ok(match);
         }        
+=======
+        // POST
+        [HttpPost]
+        public IActionResult PostNewSpy(Spy _spy)
+        {
+            if (_spy == null)
+            {
+                return NotFound();
+            }
+            else if (!ValidNewSpy(_spy)){
+                return BadRequest();
+            }
+            else
+            {
+                _repo.Post(_spy);
+                return Ok(_spy);
+            }
+
+        }
+
+        private bool ValidNewSpy(Spy _spy)
+        {
+            if (string.IsNullOrWhiteSpace(_spy.Name))
+            {
+                return false;
+            }
+
+            if (_repo.GetByName(_spy.Name) != null)
+            {
+                return false;
+            }
+
+            if (_repo.GetById(_spy.Id) != null)
+            {
+                return false;
+            }
+
+            return true;
+        }
+>>>>>>> main
     }
 }
