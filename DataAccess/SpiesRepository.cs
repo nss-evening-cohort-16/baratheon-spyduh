@@ -132,6 +132,16 @@ namespace SpyDuh_Baratheon.DataAccess
             return match;
         }
 
+        internal List<int> GetFriendIds(Spy _spy)
+        {
+            return _spy.FriendIds;
+        }
+
+        internal List<int> GetEnemyIds(Spy _spy)
+        {
+            return _spy.EnemyIds;
+        }
+
         internal List<Spy> GetAll()
         {
             return _spies;
