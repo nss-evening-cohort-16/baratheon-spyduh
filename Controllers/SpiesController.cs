@@ -20,9 +20,9 @@ namespace SpyDuh_Baratheon.Controllers
         }
 
         [HttpGet("name/{name}")]
-        public IActionResult GetSpyByName(string _name)
+        public IActionResult GetSpyByName(string name)
         {
-            var match = _repo.GetByName(_name);
+            var match = _repo.GetByName(name);
 
             if (match == null)
             {
@@ -32,10 +32,10 @@ namespace SpyDuh_Baratheon.Controllers
             return Ok(match);
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetSpyByID(int _id)
+        [HttpGet("id/{id}")]
+        public IActionResult GetSpyByID(int id)
         {
-            var match = _repo.GetById(_id);
+            var match = _repo.GetById(id);
 
             if (match == null)
             {
@@ -43,40 +43,92 @@ namespace SpyDuh_Baratheon.Controllers
             }
 
             return Ok(match);
+        }
+
+        [HttpGet("friendIds/{id}")]
+        public IActionResult GetFriendIds(int id)
+        {
+            Spy spy = _repo.GetById(id);
+
+            if (spy == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(spy.FriendIds);
+        }
+
+        [HttpGet("friends/{id}")]
+        public IActionResult GetFriends(int id)
+        {
+            Spy spy = _repo.GetById(id);
+
+            if (spy == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(_repo.GetFriends(spy));
+        }
+
+        [HttpGet("enemyIds/{id}")]
+        public IActionResult GetEnemyIds(int id)
+        {
+            Spy spy = _repo.GetById(id);
+
+            if (spy == null)
+            {
+                return BadRequest();
+            }
+
+            return Ok(spy.EnemyIds);
+        }
+
+        [HttpGet("enemies/{id}")]
+        public IActionResult GetEnemies(int id)
+        {
+            Spy spy = _repo.GetById(id);
+
+            if (spy == null)
+            {
+                return BadRequest();
+            }
+
+            return Ok(_repo.GetEnemies(spy));
         }
 
         // POST
         [HttpPost]
-        public IActionResult PostNewSpy(Spy _spy)
+        public IActionResult PostNewSpy(Spy newSpy)
         {
-            if (_spy == null)
+            if (newSpy == null)
             {
                 return NotFound();
             }
-            else if (!ValidNewSpy(_spy)){
+            else if (!ValidNewSpy(newSpy)){
                 return BadRequest();
             }
             else
             {
-                _repo.Post(_spy);
-                return Ok(_spy);
+                _repo.Post(newSpy);
+                return Ok(newSpy);
             }
 
         }
 
-        private bool ValidNewSpy(Spy _spy)
+        private bool ValidNewSpy(Spy newSpy)
         {
-            if (string.IsNullOrWhiteSpace(_spy.Name))
+            if (string.IsNullOrWhiteSpace(newSpy.Name))
             {
                 return false;
             }
 
-            if (_repo.GetByName(_spy.Name) != null)
+            if (_repo.GetByName(newSpy.Name) != null)
             {
                 return false;
             }
 
-            if (_repo.GetById(_spy.Id) != null)
+            if (_repo.GetById(newSpy.Id) != null)
             {
                 return false;
             }
