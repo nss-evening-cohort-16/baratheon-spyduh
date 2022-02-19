@@ -62,5 +62,27 @@ namespace SpyDuh_Baratheon.DataAccess
         {
             return SkillsList;
         }
+
+        internal Skills GetSkillById(int Id)
+        {
+            var match = SkillsList.FirstOrDefault(skill => skill.Id == Id);
+            return match;
+        }
+        internal List<Skills> GetSkillsNamesBySkillId(List<int> skillIds)
+        {
+            List<Skills> skillsNames = new List<Skills>();
+
+            foreach (int Id in skillIds)
+            {
+                Skills skill = GetSkillById(Id);
+                if (skill != null)
+                {
+                    skillsNames.Add(skill);
+                }
+
+            }
+            return skillsNames;
+
+        }
     }
 }

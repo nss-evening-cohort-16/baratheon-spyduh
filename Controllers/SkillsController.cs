@@ -16,5 +16,6 @@ namespace SpyDuh_Baratheon.Controllers
         {
             return _skillsRepo.GetAll();
         }
+
     }
 }

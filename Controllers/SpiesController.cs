@@ -10,6 +10,7 @@ namespace SpyDuh_Baratheon.Controllers
     public class SpiesController : ControllerBase
     {
         SpiesRepository _repo = new SpiesRepository();
+        SkillsRepository _skillsRepo = new SkillsRepository();
 
 
         // GET
@@ -140,7 +141,8 @@ namespace SpyDuh_Baratheon.Controllers
         public IActionResult GetSkillsBySpyId(int Id)
         {
             var skills = _repo.GetSkills(Id);
-            return Ok(skills);
+            var skillnames = _skillsRepo.GetSkillsNamesBySkillId(skills);
+            return Ok(skillnames);
         }
     }
 }
