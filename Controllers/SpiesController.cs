@@ -97,6 +97,12 @@ namespace SpyDuh_Baratheon.Controllers
             return Ok(_repo.GetEnemies(spy));
         }
 
+        //[HttpGet("services/{id}")]
+        //public IActionResult GetSpiesServices(int id)
+        //{
+         
+        //}
+
         // POST
         [HttpPost]
         public IActionResult PostNewSpy(Spy newSpy)

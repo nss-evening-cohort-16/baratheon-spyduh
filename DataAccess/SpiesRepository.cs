@@ -14,6 +14,7 @@ namespace SpyDuh_Baratheon.DataAccess
                     2, 3, 5, 6, 8, 9
                 },
                 ServiceIds = new List<int>() {
+                    1, 2,
                 },
                 FriendIds = new List<int> {
                     2, 3, 5, 6,
@@ -30,6 +31,7 @@ namespace SpyDuh_Baratheon.DataAccess
                     3, 4, 6, 7, 8, 9, 10
                 },
                 ServiceIds = new List<int>() {
+                    3, 4,
                 },
                 FriendIds = new List<int> {
                     1, 3, 5, 6,
@@ -46,6 +48,7 @@ namespace SpyDuh_Baratheon.DataAccess
                     5, 7, 9
                 },
                 ServiceIds = new List<int>() {
+                    5,
                 },
                 FriendIds = new List<int> {
                     1, 2, 4, 5, 
@@ -62,6 +65,7 @@ namespace SpyDuh_Baratheon.DataAccess
                     3, 4, 6, 7, 8, 9, 10
                 },
                 ServiceIds = new List<int>() {
+                    6,
                 },
                 FriendIds = new List<int> {
                     1, 3,
@@ -78,6 +82,7 @@ namespace SpyDuh_Baratheon.DataAccess
                     3, 5, 6, 8
                 },
                 ServiceIds = new List<int>() {
+                    3, 2,
                 },
                 FriendIds = new List<int> {
                     1, 2, 3, 6, 7
@@ -93,6 +98,7 @@ namespace SpyDuh_Baratheon.DataAccess
                     1, 2, 4, 5
                 },
                 ServiceIds = new List<int>() {
+                    6, 4,
                 },
                 FriendIds = new List<int> {
                     1, 2, 5, 7,
@@ -109,6 +115,7 @@ namespace SpyDuh_Baratheon.DataAccess
                     1, 2, 3, 5, 6, 7, 9
                 },
                 ServiceIds = new List<int>() {
+                    3, 6,
                 },
                 FriendIds = new List<int> {
                     5, 6,
@@ -171,6 +178,21 @@ namespace SpyDuh_Baratheon.DataAccess
             }
             return enemies;
         }
+
+        //internal List<Spy> GetSpiesServices(Spy spy)
+        //{
+        //    List <Spy> spiesServices = new List<Spy>();
+
+        //    foreach (int id in spy.ServiceIds)
+        //    {
+        //        Spy service = GetServiceById(id);
+        //        if (service != null)
+        //        {
+        //            spiesServices.Add(service);
+        //        }
+        //    }
+        //    return spiesServices;
+        //}
 
         internal List<Spy> GetAll()
         {

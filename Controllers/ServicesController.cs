@@ -18,6 +18,17 @@ namespace SpyDuh_Baratheon.Controllers
             return _servicesrepo.GetAll();
         }
 
+        [HttpGet("services/{id}")]
+        public IActionResult GetServicesByID(int id)
+        {
+            if (id == null)
+            {
+                return BadRequest();
+            }
+
+            return Ok(_servicesrepo.GetServiceById);
+        }
+
         [HttpPost]
         public IActionResult PostNewService(Services newService)
         {
@@ -25,10 +36,6 @@ namespace SpyDuh_Baratheon.Controllers
             {
                 return NotFound();
             }
-            //else if (!ValidNewService(newService))
-            //{
-            //    return BadRequest();
-            //}
             else
             {
                 _servicesrepo.Post(newService);
@@ -36,13 +43,5 @@ namespace SpyDuh_Baratheon.Controllers
             }            
         }
 
-        //private bool ValidNewService(Services newService)
-        //{
-        //    if (_servicesrepo.GetById(newService) != null)
-        //    {
-        //        return false;
-        //    }
-        //    return true;
-        //}
     }
 }

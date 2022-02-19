@@ -38,9 +38,10 @@ namespace SpyDuh_Baratheon.DataAccess
             },
         };
 
-        internal object GetById(Services newService)
+        internal Services GetServiceById(int id)
         {
-            
+            var match = _servicesOffered.FirstOrDefault(i => i.ServiceId == id);
+            return match;
         }
 
         internal void Post(Services newService)
