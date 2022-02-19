@@ -176,18 +176,11 @@ namespace SpyDuh_Baratheon.DataAccess
         {
             return _spies;
         }
-<<<<<<< HEAD
-        internal object GetSpyFriendsIds(int friendsids)
-        {
-            var match = _spies.FirstOrDefault(s => s.FriendIds != friendsids);
-            return match;
-=======
 
         // POST
         internal void Post(Spy _spy)
         {
             _spies.Add(_spy);
->>>>>>> main
         }
     }
 }

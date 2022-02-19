@@ -4,7 +4,7 @@ namespace SpyDuh_Baratheon.DataAccess
 {
     public class SkillsRepository
     {
-        public static List<Skills> Skills = new List<Skills>()
+        private List<Skills> _skills = new List<Skills>()
         {
             new Skills()
             {
@@ -57,5 +57,16 @@ namespace SpyDuh_Baratheon.DataAccess
                 skillName = "Speed-Reading"
             }
         };
+        internal IEnumerable<Skills> GetAll()
+        {
+            return _skills.ToArray();
+        }
+        internal Skills GetById(int _id)
+        {
+            return _skills.FirstOrDefault(sk => sk.Id == _id);
+            
+        }
+
     }
+
 }
