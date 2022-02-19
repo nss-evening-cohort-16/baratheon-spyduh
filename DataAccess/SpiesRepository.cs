@@ -180,22 +180,22 @@ namespace SpyDuh_Baratheon.DataAccess
             return enemies;
         }
 
-        //internal List<Service> GetSpiesServices(Spy spy)
-        //{
-        //    List<Service> services = new List<Service>();
+        internal List<Service> GetSpiesServices(Spy spy)
+        {
+            List<Service> services = new List<Service>();
 
-        //    foreach (int id in spy.ServiceIds)
-        //    {
+            foreach (int id in spy.ServiceIds)
+            {
 
-        //        Service service = ServicesRepository.GetServiceById(id);
-        //        if (service != null)
-        //        {
-        //            services.Add(service);
-        //        }
-        //    }
-        //    return services;
-        //}
-      
+                Service service = ServicesRepository.GetServiceById(id);
+                if (service != null)
+                {
+                    services.Add(service);
+                }
+            }
+            return services;
+        }
+
 
         internal List<Spy> GetAll()
         {

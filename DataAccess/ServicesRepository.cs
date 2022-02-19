@@ -2,9 +2,9 @@
 
 namespace SpyDuh_Baratheon.DataAccess
 {
-    public class ServicesRepository
+    public static class ServicesRepository
     {
-        public List<Service> _servicesOffered = new List<Service>()
+        static List<Service> _servicesOffered = new List<Service>()
         {
             new Service()
             {
@@ -38,18 +38,18 @@ namespace SpyDuh_Baratheon.DataAccess
             },
         };
 
-        internal Service GetServiceById(int id)
+        public static Service GetServiceById(int id)
         {
             var match = _servicesOffered.FirstOrDefault(i => i.ServiceId == id);
             return match;
         }
 
-        internal void Post(Service newService)
+        public static void Post(Service newService)
         {
             _servicesOffered.Add(newService);
         }
 
-        internal List<Service> GetAll()
+        public static List<Service> GetAll()
         {
             return _servicesOffered;
         }

@@ -10,23 +10,25 @@ namespace SpyDuh_Baratheon.Controllers
     [ApiController]
     public class ServicesController : ControllerBase
     {
-        ServicesRepository _servicesrepo = new ServicesRepository();
+        //ServicesRepository _servicesrepo = new ServicesRepository();
 
         [HttpGet]
         public List<Service> GetAllServices()
         {
-            return _servicesrepo.GetAll();
+            return ServicesRepository.GetAll();
         }
 
         [HttpGet("services/{id}")]
         public IActionResult GetServicesByID(int id)
         {
-            if (id == null)
+            var services = ServicesRepository.GetServiceById(id);
+
+            if (services == null)
             {
                 return BadRequest();
             }
 
-            return Ok(_servicesrepo.GetServiceById);
+            return Ok(services);
         }
 
         [HttpPost]
@@ -38,7 +40,7 @@ namespace SpyDuh_Baratheon.Controllers
             }
             else
             {
-                _servicesrepo.Post(newService);
+                ServicesRepository.Post(newService);
                 return Ok(newService);
             }            
         }
