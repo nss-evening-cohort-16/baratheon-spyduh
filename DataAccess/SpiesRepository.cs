@@ -1,4 +1,5 @@
 ﻿using SpyDuh_Baratheon.Models;
+using SpyDuh_Baratheon.DataAccess;
 
 namespace SpyDuh_Baratheon.DataAccess
 {
@@ -179,20 +180,22 @@ namespace SpyDuh_Baratheon.DataAccess
             return enemies;
         }
 
-        //internal List<Spy> GetSpiesServices(Spy spy)
+        //internal List<Service> GetSpiesServices(Spy spy)
         //{
-        //    List <Spy> spiesServices = new List<Spy>();
+        //    List<Service> services = new List<Service>();
 
         //    foreach (int id in spy.ServiceIds)
         //    {
-        //        Spy service = GetServiceById(id);
+
+        //        Service service = ServicesRepository.GetServiceById(id);
         //        if (service != null)
         //        {
-        //            spiesServices.Add(service);
+        //            services.Add(service);
         //        }
         //    }
-        //    return spiesServices;
+        //    return services;
         //}
+      
 
         internal List<Spy> GetAll()
         {

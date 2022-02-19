@@ -13,7 +13,7 @@ namespace SpyDuh_Baratheon.Controllers
         ServicesRepository _servicesrepo = new ServicesRepository();
 
         [HttpGet]
-        public List<Services> GetAllServices()
+        public List<Service> GetAllServices()
         {
             return _servicesrepo.GetAll();
         }
@@ -30,7 +30,7 @@ namespace SpyDuh_Baratheon.Controllers
         }
 
         [HttpPost]
-        public IActionResult PostNewService(Services newService)
+        public IActionResult PostNewService(Service newService)
         {
             if (newService == null)
             {

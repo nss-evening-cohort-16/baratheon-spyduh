@@ -97,11 +97,17 @@ namespace SpyDuh_Baratheon.Controllers
             return Ok(_repo.GetEnemies(spy));
         }
 
-        //[HttpGet("services/{id}")]
-        //public IActionResult GetSpiesServices(int id)
-        //{
-         
-        //}
+       [HttpGet("services/{id}")]
+       public IActionResult GetSpiesServices(int id)
+        {
+            Spy spy = _repo.GetById(id);
+
+            if (spy == null)
+            {
+                return BadRequest();
+            }
+            return Ok(_repo.GetSpiesServices(spy));
+        }
 
         // POST
         [HttpPost]
