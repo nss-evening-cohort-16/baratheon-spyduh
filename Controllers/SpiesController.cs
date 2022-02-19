@@ -11,6 +11,7 @@ namespace SpyDuh_Baratheon.Controllers
     {
         SpiesRepository _repo = new SpiesRepository();
         SkillsRepository _skillsRepo = new SkillsRepository();
+        //ServicesRepository _servicesRepository = new ServicesRepository();
 
 
         // GET
@@ -96,6 +97,19 @@ namespace SpyDuh_Baratheon.Controllers
             }
 
             return Ok(_repo.GetEnemies(spy));
+        }
+
+       [HttpGet("services/{id}")]
+       public IActionResult GetSpiesServices(int id)
+        {
+            var spy = _repo.GetById(id);
+            var servicesOffered = _repo.GetSpiesServices(spy);
+
+            if (servicesOffered == null)
+            {
+                return BadRequest();
+            }
+            return Ok(servicesOffered);
         }
 
         // POST
